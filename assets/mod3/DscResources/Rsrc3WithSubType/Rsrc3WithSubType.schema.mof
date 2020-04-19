@@ -1,0 +1,15 @@
+[ClassVersion("2.0.0"), FriendlyName("Rsrc3WithSubType")]
+class Rsrc3WithSubType : OMI_BaseResource
+{
+    [Write,ValueMap{"Present", "Absent"},Values{"Present", "Absent"}] String Ensure;
+    [Key] String Name;
+    [write, EmbeddedInstance("SubType3"), Description("Hashtable SubType3 (Property1, Property2, Property3)")] String SubTypeProperty;
+};
+
+[ClassVersion("1.0.0")]
+class SubType3
+{
+    [Write,ValueMap{"Value1", "Value2"},Values{"Value1", "Value2"}] String Property1;
+    [Write] Boolean Property2;
+    [Write] Boolean Property3;
+};
